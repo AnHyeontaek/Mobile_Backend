@@ -21,6 +21,7 @@ public class UsersSaveRequestDto {
         this.user_phone = user_phone;
         this.user_credit = user_credit;
     }
+
     public Users toEntity() {
         return Users.builder()
                 .user_id(user_id)

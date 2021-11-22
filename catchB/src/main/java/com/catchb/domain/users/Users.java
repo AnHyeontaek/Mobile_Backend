@@ -21,13 +21,13 @@ public class Users {
     @Column(nullable = false)
     private String user_pw;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String user_nickname;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String user_phone;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Long user_credit;
 
     @Builder
