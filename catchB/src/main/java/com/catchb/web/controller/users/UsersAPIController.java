@@ -44,19 +44,5 @@ public class UsersAPIController {
         return usersService.LoginUser(userId, userPw);
     }
 
-    //비밀번호 변경전 사용자 정보 확인 요청
-    @RequestMapping(value= "/change", method = {RequestMethod.GET})
-    public UsersResultDto ChangePW(@RequestParam(value="user_id") String userId, @RequestParam(value="user_phone") String userPh){
-
-        return usersService.ChangePw(userId, userPh);
-    }
-
-
-//    @RequestMapping(value ="update")
-//    public UsersResponseDto CPW(@RequestParam(value="user_id") String userId,@RequestParam(value="user_pw") String userPw){
-//        String a = usersService.findByUserid(userId);
-//
-//        return usersService.checkPh(userPw);
-//    }
 
 }

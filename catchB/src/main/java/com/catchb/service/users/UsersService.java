@@ -24,11 +24,6 @@ public class UsersService {
         return new UsersResponseDto(usersRepository.save(requestDto.toEntity()));
     }
 
-//    public Long save(UsersSaveRequestDto requestDto){
-//        System.out.println("성공");
-//        return usersRepository.save(requestDto.toEntity()).getUser_num();
-//    }
-
     public UsersResponseDto findById(Long user_num){
         Users entity = usersRepository.findById(user_num)
                 .orElseThrow(() -> new IllegalArgumentException("해당 사용자를 찾지 못함. user_id =" + user_num));
@@ -64,28 +59,4 @@ public class UsersService {
         return new UsersResultDto(result);
     }
 
-    //LoginUser
-    public UsersResultDto ChangePw(String id, String ph){
-        String user_ph = usersRepository.findPh(id);
-        String result = "";
-        if (user_ph==null) {
-            result = "0"; //일치하는 아이디가 없습니다
-            return new UsersResultDto(result);
-        }
-        if (ph.equals(user_ph)) {
-            result = "1"; //사용자 정보 조회 성공
-        }
-        else {
-            result = "2"; //핸드폰번호가 틀립니다
-        }
-        return new UsersResultDto(result);
-    }
-
-
-    public UsersResultDto checkPh(String id){
-        String user_pw = usersRepository.updatePw(id);
-        String result = user_pw;
-        return new UsersResultDto(result);
-
-   }
 }

@@ -15,19 +15,9 @@ public interface UsersRepository extends JpaRepository<Users, Long>{
     @Query(nativeQuery = true, value = "SELECT * FROM Users WHERE user_id =:id")
     List<Users> findByUserid(@Param("id") String user_id);
 
-    // 핸드폰 sql 구문
-    @Query(nativeQuery = true, value = "SELECT user_phone FROM Users WHERE user_id =:id")
-    String findPh(@Param("id") String user_id);
-
-
     // 패스워드 sql 구문
     @Query(nativeQuery = true, value = "SELECT user_pw FROM Users WHERE user_id =:id")
     String findPw(@Param("id") String user_id);
-
-    //비밀번호 변경 sql  구문
-    @Query(nativeQuery = true, value = "UPDATE Users SET user_pw =: user_pw WHERE user_id =: user_id")
-    String updatePw(@Param("id") String user_id);
-
 
 
 }
